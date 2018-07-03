@@ -1,0 +1,45 @@
+body {
+	background-color:#FF1493;
+  margin:auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.title{
+  font-family: 'Pacifico', cursive;
+  font-size: 45px;
+}
+
+.container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  width:390px;
+  text-align: center;
+  background-color:white;
+  padding: 10px 5px;
+  box-shadow: 7px 7px 10px #27414C;
+  justify-content: space-around;
+  align-items:center;
+  border-radius: 5px;
+}
+
+.answer h2{
+  font-weight: strong;
+  font-size: 40px;
+}
+
+.answer p{
+  font-style: italic;
+  text-align: justify;
+}
+
+.giphy{
+  width: 100%;
+}
