@@ -43,13 +43,13 @@ const toogleWindow = () => {
 const createWindow = async () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 350,
-    height: 580,
+    width: 390,
+    height: 500,
     frame: false,
     show: false,
     fullscreenable: false,
     resizable: false,
-    transparent: false,
+    transparent: true,
   });
 
   // and load the index.html of the app.

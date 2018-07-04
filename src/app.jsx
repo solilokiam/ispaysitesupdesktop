@@ -13,21 +13,38 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.loadSiteState();
+    this.startRefresh();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
+  }
+
+  startRefresh() {
+    this.timeout = setTimeout(() => {
+      this.loadSiteState();
+      this.startRefresh();
+    }, 30000);
+  }
+
+  loadSiteState() {
+    this.setState({ loading: true });
     axios.get('https://ispaysitesupapi-quuvsofefc.now.sh')
-      .then((response) => {
-        const json = response.data;
-        this.setState({
-          loading: false,
-          upPaysites: json.paysites === 'ok',
-          upTubes: json.tubes === 'ok',
-        });
+    .then((response) => {
+      const json = response.data;
+      this.setState({
+        loading: false,
+        upPaysites: json.paysites === 'ok',
+        upTubes: json.tubes === 'ok',
+      });
+    })
+    .catch(() => (
+      this.setState({
+        loading: false,
+        up: false,
       })
-      .catch(() => (
-        this.setState({
-          loading: false,
-          up: false,
-        })
-      ));
+    ));
   }
 
   renderResult() {
@@ -45,7 +62,7 @@ class App extends Component {
           <p>All systems seem to be working!!!!!</p>
         </div>
       );
-    } else if(upTubes) {
+    } else if (upTubes) {
       return (
         <div className="answer">
           <h2>Nope</h2>
@@ -67,7 +84,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="text">
-          <h1 className="title">Is Paysites Up?</h1>
+          <h1 className="title">Are Paysites Up?</h1>
           { this.renderResult() }
         </div>
       </div>

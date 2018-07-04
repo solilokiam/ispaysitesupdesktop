@@ -1,8 +1,10 @@
 body {
-	background-color:#FF1493;
+	background-color: rgba(255,105,180,0.8);
   margin:auto;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+  color: #fff;
+  padding: 10px;
 }
 
 .title{
@@ -11,7 +13,6 @@ body {
 }
 
 .container {
-  position: absolute;
   height: 100%;
   width: 100%;
   display: flex;
@@ -22,9 +23,7 @@ body {
 .text {
   width:390px;
   text-align: center;
-  background-color:white;
   padding: 10px 5px;
-  box-shadow: 7px 7px 10px #27414C;
   justify-content: space-around;
   align-items:center;
   border-radius: 5px;
@@ -41,5 +40,6 @@ body {
 }
 
 .giphy{
-  width: 100%;
+  max-width: 100%;
+  max-height: 300px;
 }
